@@ -28,11 +28,28 @@
     )
 )
 
-;; public functions & responses
+(define-data-var name (string-ascii 48) "Riccardo")
+(define-constant age u3)
 
+(define-data-var odd-num uint u3)
+;; public functions & responses
+(define-read-only (response-example)
+    (var-get odd-num)
+)
+
+(define-read-only (read-age)
+    age
+)
+
+(define-public (update-name (value (string-ascii 48)))
+    (ok (var-set name value))
+)
+
+(define-read-only (read-name)
+    (var-get name)
+)
 
 ;; tx-sender & is-eq
-
 (define-read-only (show-tx-sender)
     tx-sender
 )
