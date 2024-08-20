@@ -60,6 +60,12 @@
     (is-eq admin tx-sender)
 )
 
+;; tuples & merge
+
+
+
+
+
 ;; begin
 
 ;; @desc - This function allows a user to provide a name, which, if different, changes a name variable and returns "hello new name"
