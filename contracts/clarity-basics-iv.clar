@@ -1,6 +1,6 @@
 
 
-;; let 
+;; begin vs let
 (define-data-var counter uint u0)
 
 (define-map counter-history uint {user: principal, count: uint})
@@ -56,16 +56,11 @@
 
 (map-set UserData { userId: 'STNHKEPYEPJ8ET55ZZ0M5A34J0R3N5FM2CMMMAZ6} {data: u3})
 
+
 (define-read-only (get-user-data (user principal))
   (map-get? UserData { userId: user })
 )
 
-
-;; (define-public (get-todos (todos (list 10 int)))
-;;     (let
-;;         (length)
-;;     )
-;; )
 
 (define-public (calculate-average (numbers (list 10 uint)))
     (let
@@ -75,5 +70,22 @@
         )
         (asserts! (not (is-eq length u0)) (err u1))
         (ok (/ total length))
+    )
+)
+
+
+(define-public (say-hello)
+    (ok "Hello")
+)
+
+(define-public (execute)
+    (let 
+        (
+            (response (say-hello))
+        )
+        (if (is-ok response)
+            response
+            (err "Unexpected error")
+        )
     )
 )

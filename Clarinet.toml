@@ -25,6 +25,13 @@ path = 'contracts/community-hello-world.clar'
 clarity_version = 2
 epoch = 2.5
 
+[contracts.unwrapping]
+path = 'contracts/unwrapping.clar'
+clarity_version = 2
+epoch = 2.5
+[repl.analysis]
+passes = []
+
 [repl.analysis.check_checker]
 strict = false
 trusted_sender = false
