@@ -49,3 +49,28 @@
 (define-public (try-example (input (response uint uint)))
     (ok (try! input))
 )
+
+(define-public (person-tuple-to-list (person (tuple (name (string-ascii 50)) (age uint))))
+  (let
+    (
+      (person-name (get name person))
+      (person-age-string (int-to-ascii (get age person)))
+      (person-list (list person-name person-age-string))
+    )
+    (ok person-list)
+  )
+)
+
+(define-data-var recentTodos (list 5 (string-ascii 50)) (list))
+(define-constant ERR_MAX_LENGTH (err u1))
+
+(define-public (add-todo (todo (string-ascii 50)))
+    (ok 
+        (var-set recentTodos
+            (unwrap! (as-max-len? (append (var-get recentTodos) todo) u5) ERR_MAX_LENGTH))
+    )
+)
+
+
+
+
