@@ -35,6 +35,11 @@ path = 'contracts/moc.clar'
 clarity_version = 2
 epoch = 2.5
 
+[contracts.tlw]
+path = 'contracts/tlw.clar'
+clarity_version = 2
+epoch = 2.5
+
 [contracts.unwrapping]
 path = 'contracts/unwrapping.clar'
 clarity_version = 2

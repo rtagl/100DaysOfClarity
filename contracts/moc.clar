@@ -76,3 +76,10 @@
         (err u2)
     )
 )
+
+(define-public (transfer (to principal) (amount uint))
+  (begin
+    (asserts! (is-eq tx-sender CONTRACT_OWNER) (err u401))
+    (stx-transfer? amount tx-sender to)
+  )
+)
