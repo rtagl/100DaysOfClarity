@@ -62,8 +62,26 @@
 
 ;; tuples & merge
 
+(define-read-only (get-user)
+  {
+    user: "Jimbo",
+    password: "xyz"
+  }
+)
 
+(define-public (create-new-user (new-user (string-ascii 24)) (new-password (string-ascii 24)))
+  (ok {
+    user: new-user,
+    password: new-password
+  })
+)
 
+(define-data-var original {user: (string-ascii 24), password: (string-ascii 24)}
+  {
+    user: "bob",
+    password: "hello"
+  }
+)
 
 
 ;; begin
